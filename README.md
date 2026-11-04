@@ -4,7 +4,7 @@ A responsive browser game for two players: Amy starts with 100 coins; each playe
 
 ## Run
 
-Requires Python 3 and a modern browser. No dependencies or build step.
+Requires Node.js 18+, Python 3, and a modern browser. No npm dependencies; startup builds the standalone page.
 
 ```sh
 npm start
@@ -37,3 +37,13 @@ Set **Starting coins** to a whole number from 1 to 10,000, then choose **Apply &
 ## Maximum coins per turn
 
 Set **Maximum coins per turn** (1–10,000) alongside **Starting coins**, then select **Apply & restart**. Both settings are retained by New game and opponent changes. The minimum move remains 1. Quick choices show up to 20 amounts; larger limits also provide an exact-amount input. Hints, computer moves, rules and strategy all follow the applied limit. With maximum k, losing positions are multiples of k + 1. API: `newGame(total, maxTake)` and `optimalMove(remaining, maxTake)`.
+
+
+## Publish as a website with GitHub Pages
+
+1. Open repository **Settings → Pages**.
+2. Under **Build and deployment**, choose **Deploy from a branch**.
+3. Select **main** and **/ (root)**, then **Save**.
+4. Wait for GitHub's Pages deployment to finish. The site address will be shown in Pages settings (normally https://daiaustinyersin.github.io/Take-Away-Game/).
+
+The committed `index.html` is the complete website. `.nojekyll` makes it a plain static site. After source changes, run `npm run build` and commit the resulting `index.html` before pushing. Once Pages is enabled, pushes to main update the site automatically. No keys, paid hosting or server are needed. The layout adapts to laptop, tablet and phone screens, with touch controls and a Game settings shortcut.

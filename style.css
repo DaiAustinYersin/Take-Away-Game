@@ -6,3 +6,47 @@
 .setting-feedback{font-size:11px;line-height:1.6;color:#365e49;margin:8px 0 0}.setting-feedback:empty{display:none}.setting-feedback.error{color:#a1352b}#starting-coins[aria-invalid=true]{border-color:#a1352b}
 
 .coin-settings label:not(:first-child){margin-top:12px}.choices{grid-template-columns:repeat(auto-fit,minmax(36px,1fr))}.rules #rule-max{font:inherit;color:inherit;margin:0}.custom-amount-row{margin-top:14px;font-size:12px}.custom-amount-row label{display:block;margin-bottom:8px}.custom-amount-row input{width:100%;padding:10px;border:1px solid #c5cbbd;border-radius:7px;font:inherit}.custom-amount-row p{font-size:11px;color:#a1352b}.custom-amount-row p:empty{display:none}
+
+/* Comfortable controls across laptop, tablet and touch screens. */
+html{scroll-padding-top:20px}
+header nav{display:flex;align-items:center;gap:16px}
+.settings-link{text-decoration:none;display:inline-flex;align-items:center}
+button,.settings-link{min-height:44px;touch-action:manipulation}
+input:focus-visible{outline:3px solid #b27829;outline-offset:3px}
+.coin-setting-row input,.custom-amount-row input{font-size:16px;min-height:44px}
+.coin-setting-row button{font-size:12px}
+.choices{grid-template-columns:repeat(auto-fit,minmax(44px,1fr));gap:8px}
+.choices button{font-size:15px;min-height:44px}
+.mode strong{font-size:14px}.mode small{font-size:12px;line-height:1.5}
+.rules p,.board-message{font-size:13px;line-height:1.6}
+.hint-button{font-size:13px}.coin-settings small{font-size:12px}
+.strategy summary{min-height:44px;align-items:center;font-size:13px;gap:12px}
+.strategy-content{font-size:14px}.strategy{padding-top:10px;padding-bottom:10px}
+.coin-count strong{font-variant-numeric:tabular-nums}
+.game-layout>*{min-width:0}
+#game-settings{scroll-margin-top:20px}
+@media(min-width:761px) and (max-width:1000px){
+ .game-layout{grid-template-columns:1.15fr 1fr;gap:18px}
+ main{padding-left:22px;padding-right:22px}
+ .setup{padding:20px}.controls{padding-left:20px;padding-right:20px}
+ .coin-setting-row{flex-wrap:wrap}.coin-setting-row button{width:100%}
+}
+@media(max-width:760px){
+ header{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+ header nav{gap:10px}.text-button{font-size:12px}
+ main{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right));padding-bottom:env(safe-area-inset-bottom)}
+ .intro{margin-bottom:24px}.intro h1{font-size:38px}.intro p{font-size:13px}
+ .jar-scene{height:270px}.jar{margin-top:10px}.coin-count strong{font-size:44px}
+ .board-top{padding:16px}.board-message{padding:14px 12px 18px}
+ .controls-heading{gap:12px;flex-wrap:wrap}.controls-heading>span{font-size:12px}
+ .coin-setting-row{gap:10px}.coin-setting-row button{font-size:12px}
+ .section-heading h2{font-size:14px}#history li{font-size:13px}
+ .setup h2{font-size:24px}.coin-settings label{font-size:14px}
+ footer{flex-direction:column;gap:8px}footer>span:last-child{text-align:left}
+}
+@media(max-width:360px){
+ .brand{font-size:11px;letter-spacing:1px;gap:5px}.brand-icon{font-size:24px}
+ header nav{gap:7px}.text-button{font-size:11px;padding:0 3px}
+ .intro h1{font-size:34px}.controls{padding-left:14px;padding-right:14px}
+ .setup{padding:18px}.coin-setting-row{flex-wrap:wrap}.coin-setting-row button{width:100%}
+}
