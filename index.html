@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173d35">
+  <title>Take Away — A little game of strategy</title>
+  <style>
+500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+:root{font-family:'DM Sans',sans-serif;color:#243c34;background:#f8f7f2;font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,a,summary{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #b27829;outline-offset:4px}button:disabled{cursor:default;opacity:.4}header{height:94px;border-bottom:1px solid #dedfd6;display:flex;align-items:center;justify-content:space-between;max-width:1240px;margin:auto;padding:0 40px}.brand{font-size:16px;font-weight:700;letter-spacing:2px;text-decoration:none;color:#173d35;display:flex;align-items:center;gap:12px}.brand-icon{font-size:34px}.header-note{font-size:13px;color:#7a8076}.text-button{border:0;background:none;color:#365047;font-size:13px}main{max-width:1120px;margin:auto;padding:50px 30px 0}.intro{text-align:center;margin-bottom:38px}.eyebrow{font-size:10px;letter-spacing:2.1px;font-weight:700;color:#788371}h1{font-family:'Playfair Display',Georgia,serif;font-size:54px;line-height:1.13;font-weight:500;letter-spacing:-1.8px;margin:17px 0}h1 em{font-weight:500;color:#56705b}.intro p{font-size:14px;line-height:1.8;color:#7b8176;margin:0}.game-layout{display:grid;grid-template-columns:1.42fr 1fr;gap:26px;align-items:start}.board{border:1px solid #dce1d5;border-radius:18px;background:#edf1e7;overflow:hidden}.board-top{display:flex;justify-content:space-between;align-items:center;padding:24px 26px}.pill{font-size:12px;color:#365e49;background:#dfe8d6;padding:9px 14px;border-radius:30px}.round-label{font-size:9px;letter-spacing:1.8px;color:#838c7d}.jar-scene{position:relative;height:302px;display:flex;align-items:center;flex-direction:column}.coin-count{text-align:center;z-index:2;display:flex;flex-direction:column}.coin-count strong{font-family:'Playfair Display',Georgia,serif;font-size:50px;line-height:1.2;font-weight:500}.coin-count>span{font-size:9px;letter-spacing:2px;color:#84907b;margin-top:6px}.jar{width:202px;position:relative;margin-top:19px;z-index:1}.jar-lid{height:17px;width:146px;margin:auto;background:linear-gradient(#b6c0ad,#a4b19a);border:1px solid #97a48e;border-radius:6px 6px 3px 3px;box-shadow:inset 0 3px 0 #ccd3c3}.jar-body{height:173px;border:2px solid #acbda3;border-top:0;border-radius:29px 29px 35px 35px;background:linear-gradient(100deg,#ffffff65,#ffffff10 60%,#b8c8a626);position:relative;padding:25px 15px 17px;overflow:hidden;box-shadow:inset 5px 0 0 #ffffff40,inset -5px 0 0 #c3cfb830}.jar-body:before{content:'';position:absolute;top:0;left:25px;right:25px;border-top:2px solid #b1bda8}.jar-shine{position:absolute;left:9px;top:27px;width:5px;height:92px;border-radius:5px;background:#ffffff80}#coins{display:flex;flex-wrap:wrap;justify-content:center;align-content:flex-end;height:100%;gap:0 1px}.coin{display:block;width:15px;height:10px;border:1px solid #bd932f;border-radius:50%;background:linear-gradient(#f6db80,#d6ad49);box-shadow:0 2px 0 #b78c2a;transform:rotate(var(--tilt));margin-top:1px}.jar-shadow{position:absolute;width:180px;height:15px;background:#a2ad8d30;filter:blur(5px);border-radius:50%;bottom:0}.board-message{text-align:center;font-size:12px;color:#6c7c63;padding:19px 12px 23px}.controls{border-top:1px solid #dce1d5;padding:24px 26px 18px;background:#fafbf7}.controls-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}h2{font-size:14px;margin:0;font-weight:600}.controls-heading>span{font-size:10px;color:#93978b}.choices{display:grid;grid-template-columns:repeat(10,1fr);gap:6px}.choices button{padding:10px 0;background:transparent;border:1px solid #dce0d5;border-radius:7px;font-size:13px;color:#5a6b51}.choices button.selected{background:#224e40;color:white;border-color:#224e40;box-shadow:0 3px 6px #224e4020}.choices button:not(:disabled):hover{border-color:#224e40}.take-button{width:100%;margin-top:18px;background:#204d3d;color:white;border:0;border-radius:8px;padding:15px;font-size:13px}.take-button>span:last-child{float:right}.take-button:hover:not(:disabled){background:#143d2e}.hint-button{display:block;margin:16px auto 0;background:none;border:0;font-size:11px;color:#849075}.hint-text{font-size:12px;line-height:1.7;color:#526147;background:#edf1e7;padding:12px;border-radius:7px}aside{display:flex;flex-direction:column;gap:18px}.card{background:#fffefa;border:1px solid #e4e4d9;border-radius:12px}.setup{padding:25px}.setup h2{font-family:'Playfair Display',Georgia,serif;font-size:21px;font-weight:500;margin:10px 0 19px}.mode-options{display:flex;flex-direction:column;gap:9px}.mode{width:100%;display:flex;align-items:center;gap:13px;text-align:left;background:transparent;border:1px solid #e3e3d9;border-radius:8px;padding:14px 12px;color:#626d5a}.mode.active{border-color:#7f9672;background:#f0f3e9}.mode>span:first-child{font-size:23px}.mode div{flex:1}.mode strong{display:block;font-size:12px;font-weight:500}.mode small{font-size:10px;display:block;color:#8b9283;margin-top:5px}.radio{width:13px;height:13px;border:1px solid #c5cbbd;border-radius:50%}.active .radio{border:4px solid #658059}.rules{border-top:1px solid #e7e8df;margin-top:22px;padding-top:18px}.rules h3{font-size:9px;letter-spacing:1.5px;color:#8f9787;margin:0 0 16px}.rules p{font-size:11px;color:#6e7966;margin:12px 0}.rules p:last-child{margin-bottom:0}.rules p span{font-size:9px;color:#9ca68f;margin-right:12px}.history{padding:20px 24px}.section-heading{display:flex;justify-content:space-between;align-items:center}.section-heading h2{font-size:13px}.section-heading>span{font-size:8px;letter-spacing:1px;color:#949c8b}#empty-history{text-align:center;padding:13px 0 6px;color:#a1aa95}#empty-history>span{font-size:34px}#empty-history p{font-size:11px;line-height:1.8;margin:4px 0}#history{list-style:none;padding:0;margin:10px 0 0;max-height:182px;overflow:auto}#history:empty{margin:0}#history li{display:flex;gap:11px;align-items:center;padding:12px 0;border-top:1px solid #eeeee7;font-size:11px}.move-avatar{background:#edf1e7;border-radius:50%;width:28px;height:28px;display:grid;place-items:center}#history li div{display:flex;gap:5px;flex:1}.remaining{color:#75816c;text-align:right}.remaining small{display:block;font-size:8px;margin-top:4px;color:#a7ae9e}.strategy{padding:18px 21px;background:#f2f2e9}.strategy summary{display:flex;justify-content:space-between;cursor:pointer;font-size:11px;color:#748064;list-style:none}.strategy summary::-webkit-details-marker{display:none}.strategy[open] summary>span:last-child{transform:rotate(45deg)}.strategy-content{font-size:12px;line-height:1.8;color:#68765b}.strategy-content h3{color:#314e3c}footer{display:flex;justify-content:space-between;border-top:1px solid #e2e4d9;padding:23px 0;margin-top:38px;color:#a2a899;font-size:10px}footer>span:last-child{font-size:8px;letter-spacing:1.4px}[hidden]{display:none!important}@media(min-width:1400px){main{padding-top:65px}.intro{margin-bottom:45px}}@media(max-width:760px){header{height:75px;padding:0 22px}.header-note{display:none}main{padding:34px 18px 0}h1{font-size:43px}.game-layout{grid-template-columns:1fr;max-width:540px;margin:auto;gap:18px}.intro{margin-bottom:28px}.board-top{padding:20px}.controls{padding:22px 17px 18px}.choices{gap:4px}.controls-heading>span{font-size:9px}.jar-scene{height:290px}footer{gap:20px;line-height:1.7}footer>span:last-child{text-align:right}.setup{padding:23px}.brand{font-size:13px}.brand-icon{font-size:28px}}@media(prefers-reduced-motion:no-preference){.coin{animation:appear .3s ease-out}@keyframes appear{from{opacity:.5}to{opacity:1}}button{transition:background .15s,border-color .15s}}
+
+.coin-settings{margin-top:22px;border-top:1px solid #e7e8df;padding-top:18px}.coin-settings label{display:block;font-size:12px;margin-bottom:9px}.coin-setting-row{display:flex;gap:8px}.coin-setting-row input{min-width:0;width:100%;font:inherit;font-size:14px;padding:10px;border:1px solid #c5cbbd;border-radius:7px;background:#fffefa;color:#243c34}.coin-setting-row button{flex-shrink:0;border:0;border-radius:7px;background:#204d3d;color:white;font-size:11px;padding:10px 12px}.coin-settings small{display:block;font-size:10px;color:#788371;line-height:1.6;margin-top:8px}.jar-note{text-align:center;font-size:10px;color:#6c7c63;padding:0 18px;margin:10px 0 0}
+
+.setting-feedback{font-size:11px;line-height:1.6;color:#365e49;margin:8px 0 0}.setting-feedback:empty{display:none}.setting-feedback.error{color:#a1352b}#starting-coins[aria-invalid=true]{border-color:#a1352b}
+
+.coin-settings label:not(:first-child){margin-top:12px}.choices{grid-template-columns:repeat(auto-fit,minmax(36px,1fr))}.rules #rule-max{font:inherit;color:inherit;margin:0}.custom-amount-row{margin-top:14px;font-size:12px}.custom-amount-row label{display:block;margin-bottom:8px}.custom-amount-row input{width:100%;padding:10px;border:1px solid #c5cbbd;border-radius:7px;font:inherit}.custom-amount-row p{font-size:11px;color:#a1352b}.custom-amount-row p:empty{display:none}
+
+</style>
+</head>
+<body>
+  <header><a class="brand" href="./"><span class="brand-icon">◒</span> TAKE AWAY</a><span class="header-note">A little game of strategy</span><button class="text-button" id="restart">↻ &nbsp; New game</button></header>
+  <main>
+    <section class="intro"><div class="eyebrow">THE CLASSIC COIN GAME</div><h1>Small moves.<br><em>Winning thinking.</em></h1><p>One jar. <span id="intro-total">100 coins</span>. Take your turn,<br class="desktop-break"> think ahead, and make the last coin yours.</p></section>
+    <div class="game-layout">
+      <section class="board" aria-label="Coin game">
+        <div class="board-top"><span class="pill" id="turn-label">● &nbsp; Amy’s turn</span><span class="round-label" id="move-number">LET’S BEGIN</span></div>
+        <div class="jar-scene"><div class="coin-count"><strong id="count">100</strong><span>COINS IN THE JAR</span></div><div class="jar"><div class="jar-lid"></div><div class="jar-body"><div id="coins" aria-hidden="true"></div><span class="jar-shine"></span></div></div><div class="jar-shadow"></div></div><p id="jar-note" class="jar-note" hidden>Illustration shows up to 100 coins; the counter shows the exact total.</p>
+        <div class="board-message" role="status" aria-live="polite" id="message">The first move is yours, Amy.</div>
+        <div class="controls"><div class="controls-heading"><h2>How many will you take?</h2><span id="range-label">Choose 1–10 coins</span></div><div class="choices" id="choices" aria-label="Number of coins to take"></div><div id="custom-amount-row" class="custom-amount-row" hidden><label for="custom-amount">Or enter an exact amount</label><input id="custom-amount" type="number" min="1" step="1" value="1" aria-describedby="amount-feedback"><p id="amount-feedback" role="status"></p></div><button class="take-button" id="take">Take <span id="selected-count">1 coin</span> <span aria-hidden="true">↗</span></button><button class="hint-button" id="hint">✧ &nbsp; A little hint?</button><p id="hint-text" class="hint-text" hidden></p></div>
+      </section>
+      <aside>
+        <section class="setup card"><div class="eyebrow">MAKE IT A MATCH</div><h2>Choose your opponent</h2><div class="mode-options"><button class="mode active" data-mode="computer" aria-pressed="true"><span>✦</span><div><strong>Play the computer</strong><small>You’re Amy. Beth plays optimally.</small></div><span class="radio"></span></button><button class="mode" data-mode="local" aria-pressed="false"><span>♧</span><div><strong>Play with a friend</strong><small>Amy & Beth, on the same device.</small></div><span class="radio"></span></button></div><div id="coin-settings" class="coin-settings" role="group" aria-label="Starting coin settings"><label for="starting-coins">Starting coins</label><div class="coin-setting-row"><input id="starting-coins" name="coins" type="number" min="1" max="10000" step="1" value="100" required aria-describedby="coin-setting-help coin-setting-feedback"></div><label for="max-take">Maximum coins per turn</label><div class="coin-setting-row"><input id="max-take" type="number" min="1" max="10000" step="1" value="10" required aria-describedby="coin-setting-help coin-setting-feedback"><button type="button" id="apply-coins">Apply & restart</button></div><small id="coin-setting-help">Both settings accept 1–10,000. Applying starts a new game.</small><p id="coin-setting-feedback" class="setting-feedback" role="status" aria-live="polite"></p></div><div class="rules"><h3>THE RULES, SIMPLY</h3><p><span>01</span> Amy goes first. Then take turns.</p><p><span>02</span> Take 1 to <span id="rule-max">10</span> coins each turn.</p><p><span>03</span> Empty the jar to win the game.</p></div></section>
+        <section class="history card"><div class="section-heading"><h2>The moves so far</h2><span id="history-count">0 MOVES</span></div><ol id="history"></ol><div id="empty-history"><span>⌁</span><p>Every good strategy starts<br>with a first move.</p></div></section>
+        <details class="strategy card"><summary><span>✧ &nbsp; The strategy behind the game</span><span>+</span></summary><div class="strategy-content" id="strategy-content"><h3>Amy can always win.</h3><p>Take <strong>1 coin</strong> first, leaving 99. After Beth takes <em>x</em> coins, Amy takes <strong>11 − x</strong>. Together, each pair of moves removes 11 coins.</p><p>Amy keeps leaving 99, 88, 77, …, 11, then 0. From a multiple of 11, every legal move lets the other player return to a multiple of 11. So these are losing positions for the player whose turn it is.</p><p>Beth plays optimally, but cannot force a win if Amy follows this strategy.</p></div></details>
+      </aside>
+    </div>
+    <footer><span><span id="footer-total">100 coins</span>. Countless possibilities.</span><span>THE LAST COIN IS THE ONE THAT COUNTS.</span></footer>
+  </main>
+  <script>
+(() => {
+const STARTING_COINS = 100;
+const MAX_TAKE = 10;
+const MAX_STARTING_COINS = 10000;
+
+function optimalMove(remaining, maxTake = MAX_TAKE) {
+  if (!Number.isInteger(remaining) || remaining < 1) throw new RangeError('The jar must contain coins.');
+  validateMaxTake(maxTake);
+  return remaining % (maxTake + 1) || 1;
+}
+
+function takeCoins(state, amount) {
+  if (state.winner || !Number.isInteger(amount) || amount < 1 || amount > Math.min(state.maxTake ?? MAX_TAKE, state.remaining)) {
+    throw new RangeError(`Choose 1 to ${Math.min(state.maxTake ?? MAX_TAKE, state.remaining)} available coins.`);
+  }
+  const remaining = state.remaining - amount;
+  return {
+    remaining,
+    maxTake: state.maxTake ?? MAX_TAKE,
+    turn: remaining === 0 ? state.turn : state.turn === 'Amy' ? 'Beth' : 'Amy',
+    winner: remaining === 0 ? state.turn : null,
+    history: [...state.history, { player: state.turn, amount, remaining }],
+  };
+}
+
+function newGame(total = STARTING_COINS, maxTake = MAX_TAKE) {
+  if (!Number.isInteger(total) || total < 1 || total > MAX_STARTING_COINS) {
+    throw new RangeError(`Choose a whole number from 1 to ${MAX_STARTING_COINS}.`);
+  }
+  validateMaxTake(maxTake);
+  return { remaining: total, maxTake, turn: 'Amy', winner: null, history: [] };
+}
+
+function validateMaxTake(maxTake) {
+  if (!Number.isInteger(maxTake) || maxTake < 1 || maxTake > MAX_STARTING_COINS) {
+    throw new RangeError('Maximum per turn must be a whole number from 1 to 10,000.');
+  }
+}
+
+
+const $ = (id) => document.getElementById(id);
+let startingCoins = 100;
+let maxTake = 10;
+let state = newGame(startingCoins, maxTake);
+let selected = 1;
+let mode = 'computer';
+let timer;
+
+function render() {
+  const thinking = mode === 'computer' && state.turn === 'Beth' && !state.winner;
+  $('count').textContent = state.remaining;
+  $('custom-amount-row').hidden = maxTake <= 20;
+  $('custom-amount').max = Math.min(maxTake, state.remaining);
+  $('custom-amount').value = selected;
+  $('custom-amount').disabled = thinking || !!state.winner;
+  $('amount-feedback').textContent = '';
+  $('custom-amount').removeAttribute('aria-invalid');
+  $('jar-note').hidden = state.remaining <= 100;
+  $('turn-label').textContent = state.winner ? `★  ${state.winner} wins!` : `●  ${state.turn}’s turn`;
+  $('move-number').textContent = state.history.length ? `MOVE ${state.history.length}` : 'LET’S BEGIN';
+  $('message').textContent = state.winner ? `${state.winner} takes the last coin. Well played!` : thinking ? 'Beth is thinking…' : state.history.length ? `Your move, ${state.turn}. Make it count.` : 'The first move is yours, Amy.';
+  $('coins').replaceChildren(...Array.from({ length: Math.min(100, state.remaining) }, (_, i) => {
+    const coin = document.createElement('span');
+    coin.className = 'coin';
+    coin.style.setProperty('--tilt', `${((i * 17) % 25) - 12}deg`);
+    return coin;
+  }));
+  $('choices').replaceChildren(...Array.from({ length: Math.min(maxTake, 20) }, (_, i) => {
+    const button = document.createElement('button');
+    const amount = i + 1;
+    button.textContent = amount;
+    button.className = amount === selected ? 'selected' : '';
+    button.setAttribute('aria-pressed', String(amount === selected));
+    button.setAttribute('aria-label', `Take ${amount} ${amount === 1 ? 'coin' : 'coins'}`);
+    button.disabled = thinking || !!state.winner || amount > state.remaining;
+    button.onclick = () => { selected = amount; render(); };
+    return button;
+  }));
+  $('selected-count').textContent = `${selected} ${selected === 1 ? 'coin' : 'coins'}`;
+  $('take').disabled = thinking || !!state.winner;
+  $('hint').disabled = thinking || !!state.winner;
+  $('range-label').textContent = state.winner ? 'Game complete' : `Choose 1–${Math.min(maxTake, state.remaining)} coins`;
+  $('history-count').textContent = `${state.history.length} MOVES`;
+  $('empty-history').hidden = state.history.length > 0;
+  $('history').replaceChildren(...[...state.history].reverse().map((move, i) => {
+    const li = document.createElement('li');
+    li.innerHTML = `<span class="move-avatar">${move.player[0]}</span><div><strong>${move.player}</strong><span>took ${move.amount} ${move.amount === 1 ? 'coin' : 'coins'}</span></div><span class="remaining">${move.remaining} left<small>#${state.history.length - i}</small></span>`;
+    return li;
+  }));
+}
+
+function move(amount) {
+  state = takeCoins(state, amount);
+  selected = Math.min(selected, state.remaining || 1);
+  $('hint-text').hidden = true;
+  render();
+  if (mode === 'computer' && state.turn === 'Beth' && !state.winner) {
+    timer = setTimeout(() => move(optimalMove(state.remaining, maxTake)), 700);
+  }
+}
+function reset() {
+  clearTimeout(timer);
+  state = newGame(startingCoins, maxTake);
+  selected = 1;
+  $('hint-text').hidden = true;
+  render();
+}
+$('take').onclick = () => {
+  if (!state.winner && !(mode === 'computer' && state.turn === 'Beth')) move(selected);
+};
+$('restart').onclick = reset;
+$('hint').onclick = () => {
+  const remainder = state.remaining % (maxTake + 1);
+  $('hint-text').textContent = remainder ? `Try taking ${remainder} ${remainder === 1 ? 'coin' : 'coins'} to leave a multiple of ${maxTake + 1}. That gives you a winning position if you keep playing optimally.` : `This is a tricky position: no move guarantees a win against perfect play. Take any legal amount and watch for a chance to leave a multiple of ${maxTake + 1}.`;
+  $('hint-text').hidden = false;
+};
+document.querySelectorAll('.mode').forEach(button => {
+  button.onclick = () => {
+    if (mode === button.dataset.mode) return;
+    mode = button.dataset.mode;
+    document.querySelectorAll('.mode').forEach(b => {
+      b.classList.toggle('active', b === button);
+      b.setAttribute('aria-pressed', String(b === button));
+    });
+    reset();
+  };
+});
+function renderSettings() {
+  const label = `${startingCoins.toLocaleString()} ${startingCoins === 1 ? 'coin' : 'coins'}`;
+  $('intro-total').textContent = label;
+  $('footer-total').textContent = label;
+  $('rule-max').textContent = maxTake;
+  const base = maxTake + 1;
+  const firstMove = startingCoins % base;
+  $('strategy-content').innerHTML = firstMove
+    ? `<h3>Amy can force a win.</h3><p>With ${label}, take <strong>${firstMove} ${firstMove === 1 ? 'coin' : 'coins'}</strong> first, leaving ${startingCoins - firstMove}.${startingCoins <= maxTake ? ' This empties the jar immediately.' : ` After Beth takes <em>x</em> coins, Amy takes <strong>${base} − x</strong>, leaving another multiple of ${base} until she empties the jar.`}</p>`
+    : `<h3>Beth can force a win.</h3><p>${startingCoins.toLocaleString()} is a multiple of ${base}. After Amy takes <em>x</em> coins, Beth takes <strong>${base} − x</strong>. Each pair removes ${base} coins, so Beth takes the last coin with optimal play.</p>`;
+  const explanation = document.createElement('p');
+  explanation.textContent = `With 1–${maxTake} coins allowed per turn, multiples of ${base} are losing positions for the player whose turn it is: every legal move lets the opponent return to a multiple of ${base}.`;
+  $('strategy-content').append(explanation);
+}
+function applyStartingCoins() {
+  const input = $('starting-coins');
+  const feedback = $('coin-setting-feedback');
+  const limitInput = $('max-take');
+  input.removeAttribute('aria-invalid');
+  limitInput.removeAttribute('aria-invalid');
+  const invalid = [input, limitInput].find(field => !field.validity.valid);
+  if (invalid) {
+    feedback.textContent = 'Enter a whole number from 1 to 10,000 for each setting.';
+    feedback.classList.add('error');
+    invalid.setAttribute('aria-invalid', 'true');
+    invalid.focus();
+    return;
+  }
+  input.removeAttribute('aria-invalid');
+  feedback.classList.remove('error');
+  startingCoins = input.valueAsNumber;
+  maxTake = limitInput.valueAsNumber;
+  reset();
+  renderSettings();
+  feedback.textContent = `New game started with ${startingCoins.toLocaleString()} ${startingCoins === 1 ? 'coin' : 'coins'}. Take 1–${maxTake} per turn. Amy goes first.`;
+}
+// Sandboxed previews may allow scripts while blocking form submission.
+$('apply-coins').onclick = applyStartingCoins;
+[$('starting-coins'), $('max-take')].forEach(input => { input.onkeydown = (event) => {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    applyStartingCoins();
+  }
+}; });
+$('custom-amount').oninput = () => {
+  const input = $('custom-amount');
+  const valid = input.validity.valid;
+  $('take').disabled = !valid;
+  input.setAttribute('aria-invalid', String(!valid));
+  $('amount-feedback').textContent = valid ? '' : `Choose a whole number from 1 to ${Math.min(maxTake, state.remaining)}.`;
+  if (valid) {
+    selected = input.valueAsNumber;
+    $('selected-count').textContent = `${selected} ${selected === 1 ? 'coin' : 'coins'}`;
+    document.querySelectorAll('#choices button').forEach(button => {
+      const active = Number(button.textContent) === selected;
+      button.classList.toggle('selected', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+  }
+};
+render();
+renderSettings();
+
+})();
+</script>
+</body>
+</html>
